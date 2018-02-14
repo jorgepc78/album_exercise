@@ -22,10 +22,35 @@ export class HomePage {
       .getLastAlbums()
       .subscribe(
       data => {
-        this.albumList = data.json();
+        let total = data.json().length;
+        let datos = data.json();
+        
+        this.albumList.push(
+          {
+            num: 1,
+            data: datos[total-1]
+          }
+        );
+        this.albumList.push(
+          {
+            num: 2,
+            data: datos[total-2]
+          }
+        );
+        this.albumList.push(
+          {
+            num: 3,
+            data: datos[total-3]
+          }
+        );
       });
-
-
   }
+
+  goDetail(detail: any): void {
+    this.navCtrl.push('DetailPage', {
+      detail: detail
+    });
+  }
+
 
 }

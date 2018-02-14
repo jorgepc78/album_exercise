@@ -9,20 +9,21 @@ import 'rxjs/add/observable/throw';
 
 
 @Injectable()
-export class AlbumService {
+export class AlbumDetailService {
 
   constructor(
     private http: Http
   ) {}
 
-  getLastAlbums() {
+  geDetailAlbum(id: number) {
     return this.http
-      .get('http://jsonplaceholder.typicode.com/albums')
+      .get('https://jsonplaceholder.typicode.com/photos?albumId=' + id)
       .map((response: Response) => {
         return response;
       })
       .catch(this.handleError);
   }
+
 
   private handleError(error: Response | any) {
     return Observable.throw(error);
