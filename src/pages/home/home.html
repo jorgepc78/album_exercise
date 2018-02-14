@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Album
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+
+  <ion-card *ngFor="let album of albumList" >
+  <img src="{{album.thumbnailUrl}}"/>
+  <ion-card-content>
+    <ion-card-title>
+      {{album.title}}
+      </ion-card-title>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>
